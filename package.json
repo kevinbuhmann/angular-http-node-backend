@@ -1,0 +1,36 @@
+{
+  "name": "angular-http-node-backend",
+  "version": "0.1.0",
+  "description": "Node backend for Angular HTTP service.",
+  "main": "dist/index",
+  "scripts": {
+    "clean": "rimraf dist",
+    "lint": "tslint \"src/**/*.ts\"",
+    "build": "yarn run clean && yarn run lint && yarn run build:typescript",
+    "build:typescript": "tsc --project tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinphelps/angular-http-node-backend.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kevinphelps/angular-http-node-backend/issues"
+  },
+  "homepage": "https://github.com/kevinphelps/angular-http-node-backend#readme",
+  "dependencies": {
+    "@angular/common": "2.4.6",
+    "@angular/core": "2.4.6",
+    "@angular/http": "2.4.6",
+    "@angular/platform-browser": "2.4.6",
+    "rxjs": "5.1.0",
+    "zone.js": "0.7.6"
+  },
+  "devDependencies": {
+    "@types/node": "7.0.5",
+    "rimraf": "2.5.4",
+    "tslint": "4.4.2",
+    "typescript": "2.1.5"
+  }
+}
