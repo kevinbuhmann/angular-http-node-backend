@@ -2,14 +2,10 @@ import * as http from 'http';
 import * as https from 'https';
 import * as url from 'url';
 
-import { isPresent } from '@angular/common/src/facade/lang';
-import { isSuccess } from '@angular/http/src/http_utils';
-
 import { Connection, Headers, ReadyState, Request, RequestMethod, Response, ResponseOptions, ResponseType } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
-import 'rxjs/add/operator/map';
 
 export class NodeConnection implements Connection {
   public readyState: ReadyState;
@@ -28,7 +24,7 @@ export class NodeConnection implements Connection {
       auth: urlInfo.auth
     };
 
-    if (isPresent(request.headers)) {
+    if (!!request.headers) {
       requestOptions.headers = {};
       request.headers.forEach((values, name) => requestOptions.headers[name] = values.join(','));
     }
@@ -48,7 +44,7 @@ export class NodeConnection implements Connection {
           let responseOptions = new ResponseOptions({ body, status, headers, url });
           let response = new Response(responseOptions);
 
-          if (isSuccess(status)) {
+          if (status >= 200 && status < 300) {
             observer.next(response);
             observer.complete();
           } else {
@@ -60,7 +56,7 @@ export class NodeConnection implements Connection {
       let onError = (error: any) => {
         let responseOptions = new ResponseOptions({ body: error, type: ResponseType.Error });
 
-        if (isPresent(baseResponseOptions)) {
+        if (!!baseResponseOptions) {
           responseOptions = baseResponseOptions.merge(responseOptions);
         }
 

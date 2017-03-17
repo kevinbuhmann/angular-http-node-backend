@@ -20,12 +20,12 @@
   },
   "homepage": "https://github.com/kevinphelps/angular-http-node-backend#readme",
   "dependencies": {
-    "@angular/common": "2.4.6",
-    "@angular/core": "2.4.6",
-    "@angular/http": "2.4.6",
-    "@angular/platform-browser": "2.4.6",
-    "rxjs": "5.1.0",
-    "zone.js": "0.7.6"
+    "@angular/common": ">2.0.0 || >=4.0.0-rc.0 < 5.0.0",
+    "@angular/core": ">2.0.0 || >=4.0.0-rc.0 < 5.0.0",
+    "@angular/http": ">2.0.0 || >=4.0.0-rc.0 < 5.0.0",
+    "@angular/platform-browser": ">2.0.0 || >=4.0.0-rc.0 < 5.0.0",
+    "rxjs": "^5.0.0",
+    "zone.js": "^0.7.0 || ^0.8.0"
   },
   "devDependencies": {
     "@types/node": "7.0.5",
